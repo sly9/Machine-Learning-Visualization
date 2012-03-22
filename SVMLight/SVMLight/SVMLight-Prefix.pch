@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'SVMLight' target in the 'SVMLight' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

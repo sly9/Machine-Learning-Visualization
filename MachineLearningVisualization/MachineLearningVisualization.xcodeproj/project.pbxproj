@@ -1,0 +1,311 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		13B77537151B95B8003CCE88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B77536151B95B8003CCE88 /* UIKit.framework */; };
+		13B77539151B95B8003CCE88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B77538151B95B8003CCE88 /* Foundation.framework */; };
+		13B7753B151B95B8003CCE88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B7753A151B95B8003CCE88 /* CoreGraphics.framework */; };
+		13B77541151B95B8003CCE88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 13B7753F151B95B8003CCE88 /* InfoPlist.strings */; };
+		13B77543151B95B8003CCE88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B77542151B95B8003CCE88 /* main.m */; };
+		13B77547151B95B8003CCE88 /* MLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B77546151B95B8003CCE88 /* MLAppDelegate.m */; };
+		13B7754A151B95B8003CCE88 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B77548151B95B8003CCE88 /* MainStoryboard.storyboard */; };
+		13B7754D151B95B8003CCE88 /* MLMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7754C151B95B8003CCE88 /* MLMasterViewController.m */; };
+		13B77550151B95B8003CCE88 /* MLDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7754F151B95B8003CCE88 /* MLDetailViewController.m */; };
+		13B77593151B9E75003CCE88 /* SVMLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B77592151B9E75003CCE88 /* SVMLight.framework */; };
+		13B77596151BA2A4003CCE88 /* test.dat in Resources */ = {isa = PBXBuildFile; fileRef = 13B77594151BA2A4003CCE88 /* test.dat */; };
+		13B77597151BA2A4003CCE88 /* train.dat in Resources */ = {isa = PBXBuildFile; fileRef = 13B77595151BA2A4003CCE88 /* train.dat */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		13B77532151B95B8003CCE88 /* MachineLearningVisualization.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MachineLearningVisualization.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B77536151B95B8003CCE88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		13B77538151B95B8003CCE88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		13B7753A151B95B8003CCE88 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		13B7753E151B95B8003CCE88 /* MachineLearningVisualization-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MachineLearningVisualization-Info.plist"; sourceTree = "<group>"; };
+		13B77540151B95B8003CCE88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		13B77542151B95B8003CCE88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		13B77544151B95B8003CCE88 /* MachineLearningVisualization-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MachineLearningVisualization-Prefix.pch"; sourceTree = "<group>"; };
+		13B77545151B95B8003CCE88 /* MLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLAppDelegate.h; sourceTree = "<group>"; };
+		13B77546151B95B8003CCE88 /* MLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLAppDelegate.m; sourceTree = "<group>"; };
+		13B77549151B95B8003CCE88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		13B7754B151B95B8003CCE88 /* MLMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLMasterViewController.h; sourceTree = "<group>"; };
+		13B7754C151B95B8003CCE88 /* MLMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLMasterViewController.m; sourceTree = "<group>"; };
+		13B7754E151B95B8003CCE88 /* MLDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDetailViewController.h; sourceTree = "<group>"; };
+		13B7754F151B95B8003CCE88 /* MLDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDetailViewController.m; sourceTree = "<group>"; };
+		13B77592151B9E75003CCE88 /* SVMLight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SVMLight.framework; sourceTree = "<group>"; };
+		13B77594151BA2A4003CCE88 /* test.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.dat; sourceTree = "<group>"; };
+		13B77595151BA2A4003CCE88 /* train.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = train.dat; path = "/Users/sly/work/Machine-Learning-Visualization/MachineLearningVisualization/MachineLearningVisualization/train.dat"; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13B7752F151B95B8003CCE88 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13B77537151B95B8003CCE88 /* UIKit.framework in Frameworks */,
+				13B77539151B95B8003CCE88 /* Foundation.framework in Frameworks */,
+				13B7753B151B95B8003CCE88 /* CoreGraphics.framework in Frameworks */,
+				13B77593151B9E75003CCE88 /* SVMLight.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13B77527151B95B8003CCE88 = {
+			isa = PBXGroup;
+			children = (
+				13B7753C151B95B8003CCE88 /* MachineLearningVisualization */,
+				13B77535151B95B8003CCE88 /* Frameworks */,
+				13B77533151B95B8003CCE88 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		13B77533151B95B8003CCE88 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13B77532151B95B8003CCE88 /* MachineLearningVisualization.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		13B77535151B95B8003CCE88 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				13B77592151B9E75003CCE88 /* SVMLight.framework */,
+				13B77536151B95B8003CCE88 /* UIKit.framework */,
+				13B77538151B95B8003CCE88 /* Foundation.framework */,
+				13B7753A151B95B8003CCE88 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		13B7753C151B95B8003CCE88 /* MachineLearningVisualization */ = {
+			isa = PBXGroup;
+			children = (
+				13B77545151B95B8003CCE88 /* MLAppDelegate.h */,
+				13B77546151B95B8003CCE88 /* MLAppDelegate.m */,
+				13B77548151B95B8003CCE88 /* MainStoryboard.storyboard */,
+				13B7754B151B95B8003CCE88 /* MLMasterViewController.h */,
+				13B7754C151B95B8003CCE88 /* MLMasterViewController.m */,
+				13B7754E151B95B8003CCE88 /* MLDetailViewController.h */,
+				13B7754F151B95B8003CCE88 /* MLDetailViewController.m */,
+				13B7753D151B95B8003CCE88 /* Supporting Files */,
+			);
+			path = MachineLearningVisualization;
+			sourceTree = "<group>";
+		};
+		13B7753D151B95B8003CCE88 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				13B77594151BA2A4003CCE88 /* test.dat */,
+				13B77595151BA2A4003CCE88 /* train.dat */,
+				13B7753E151B95B8003CCE88 /* MachineLearningVisualization-Info.plist */,
+				13B7753F151B95B8003CCE88 /* InfoPlist.strings */,
+				13B77542151B95B8003CCE88 /* main.m */,
+				13B77544151B95B8003CCE88 /* MachineLearningVisualization-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		13B77531151B95B8003CCE88 /* MachineLearningVisualization */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13B77553151B95B8003CCE88 /* Build configuration list for PBXNativeTarget "MachineLearningVisualization" */;
+			buildPhases = (
+				13B7752E151B95B8003CCE88 /* Sources */,
+				13B7752F151B95B8003CCE88 /* Frameworks */,
+				13B77530151B95B8003CCE88 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MachineLearningVisualization;
+			productName = MachineLearningVisualization;
+			productReference = 13B77532151B95B8003CCE88 /* MachineLearningVisualization.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		13B77529151B95B8003CCE88 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ML;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Carnegie Mellon University";
+			};
+			buildConfigurationList = 13B7752C151B95B8003CCE88 /* Build configuration list for PBXProject "MachineLearningVisualization" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 13B77527151B95B8003CCE88;
+			productRefGroup = 13B77533151B95B8003CCE88 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13B77531151B95B8003CCE88 /* MachineLearningVisualization */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		13B77530151B95B8003CCE88 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13B77541151B95B8003CCE88 /* InfoPlist.strings in Resources */,
+				13B7754A151B95B8003CCE88 /* MainStoryboard.storyboard in Resources */,
+				13B77596151BA2A4003CCE88 /* test.dat in Resources */,
+				13B77597151BA2A4003CCE88 /* train.dat in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		13B7752E151B95B8003CCE88 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13B77543151B95B8003CCE88 /* main.m in Sources */,
+				13B77547151B95B8003CCE88 /* MLAppDelegate.m in Sources */,
+				13B7754D151B95B8003CCE88 /* MLMasterViewController.m in Sources */,
+				13B77550151B95B8003CCE88 /* MLDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		13B7753F151B95B8003CCE88 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13B77540151B95B8003CCE88 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		13B77548151B95B8003CCE88 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13B77549151B95B8003CCE88 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		13B77551151B95B8003CCE88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		13B77552151B95B8003CCE88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		13B77554151B95B8003CCE88 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MachineLearningVisualization/MachineLearningVisualization-Prefix.pch";
+				INFOPLIST_FILE = "MachineLearningVisualization/MachineLearningVisualization-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		13B77555151B95B8003CCE88 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MachineLearningVisualization/MachineLearningVisualization-Prefix.pch";
+				INFOPLIST_FILE = "MachineLearningVisualization/MachineLearningVisualization-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		13B7752C151B95B8003CCE88 /* Build configuration list for PBXProject "MachineLearningVisualization" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B77551151B95B8003CCE88 /* Debug */,
+				13B77552151B95B8003CCE88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13B77553151B95B8003CCE88 /* Build configuration list for PBXNativeTarget "MachineLearningVisualization" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B77554151B95B8003CCE88 /* Debug */,
+				13B77555151B95B8003CCE88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 13B77529151B95B8003CCE88 /* Project object */;
+}
