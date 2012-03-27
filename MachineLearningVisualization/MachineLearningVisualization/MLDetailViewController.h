@@ -16,5 +16,8 @@
 @property (strong, nonatomic) id detailItem;
 
 @property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+- (IBAction)trainData:(id)sender;
+- (IBAction)testData:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *textfield;
 
 @end

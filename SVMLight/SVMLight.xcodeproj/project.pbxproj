@@ -16,6 +16,8 @@
 		13B77563151B961B003CCE88 /* svm_learn_main.c in Sources */ = {isa = PBXBuildFile; fileRef = 13B7755B151B961B003CCE88 /* svm_learn_main.c */; };
 		13B77564151B961B003CCE88 /* svm_learn.c in Sources */ = {isa = PBXBuildFile; fileRef = 13B7755C151B961B003CCE88 /* svm_learn.c */; };
 		13B77565151B961B003CCE88 /* svm_learn.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B7755D151B961B003CCE88 /* svm_learn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13B7759A151BAB73003CCE88 /* SVMLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 13B77598151BAB73003CCE88 /* SVMLight.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		13B7759B151BAB73003CCE88 /* SVMLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B77599151BAB73003CCE88 /* SVMLight.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		13B7755B151B961B003CCE88 /* svm_learn_main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = svm_learn_main.c; sourceTree = "<group>"; };
 		13B7755C151B961B003CCE88 /* svm_learn.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = svm_learn.c; sourceTree = "<group>"; };
 		13B7755D151B961B003CCE88 /* svm_learn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = svm_learn.h; sourceTree = "<group>"; };
+		13B77598151BAB73003CCE88 /* SVMLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVMLight.h; sourceTree = "<group>"; };
+		13B77599151BAB73003CCE88 /* SVMLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVMLight.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				13B7755C151B961B003CCE88 /* svm_learn.c */,
 				13B7755D151B961B003CCE88 /* svm_learn.h */,
 				13B7751C151B959B003CCE88 /* Supporting Files */,
+				13B77598151BAB73003CCE88 /* SVMLight.h */,
+				13B77599151BAB73003CCE88 /* SVMLight.m */,
 			);
 			path = SVMLight;
 			sourceTree = "<group>";
@@ -96,6 +102,7 @@
 				13B7755E151B961B003CCE88 /* kernel.h in Headers */,
 				13B77561151B961B003CCE88 /* svm_common.h in Headers */,
 				13B77565151B961B003CCE88 /* svm_learn.h in Headers */,
+				13B7759A151BAB73003CCE88 /* SVMLight.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +219,7 @@
 				13B77562151B961B003CCE88 /* svm_hideo.c in Sources */,
 				13B77563151B961B003CCE88 /* svm_learn_main.c in Sources */,
 				13B77564151B961B003CCE88 /* svm_learn.c in Sources */,
+				13B7759B151BAB73003CCE88 /* SVMLight.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +350,7 @@
 				13B77526151B959B003CCE88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

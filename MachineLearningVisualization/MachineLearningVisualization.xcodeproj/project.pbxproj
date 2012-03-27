@@ -19,6 +19,14 @@
 		13B77593151B9E75003CCE88 /* SVMLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B77592151B9E75003CCE88 /* SVMLight.framework */; };
 		13B77596151BA2A4003CCE88 /* test.dat in Resources */ = {isa = PBXBuildFile; fileRef = 13B77594151BA2A4003CCE88 /* test.dat */; };
 		13B77597151BA2A4003CCE88 /* train.dat in Resources */ = {isa = PBXBuildFile; fileRef = 13B77595151BA2A4003CCE88 /* train.dat */; };
+		13C581E6152210460011E9DA /* KMeansAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581E5152210460011E9DA /* KMeansAlgorithm.m */; };
+		13C581E91522106D0011E9DA /* KNNAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581E81522106D0011E9DA /* KNNAlgorithm.m */; };
+		13C581EC1522109F0011E9DA /* KNNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581EB1522109F0011E9DA /* KNNView.m */; };
+		13C581EF152210A90011E9DA /* KMeansView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581EE152210A90011E9DA /* KMeansView.m */; };
+		13C581F2152210B40011E9DA /* KNN.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581F1152210B40011E9DA /* KNN.m */; };
+		13C581F5152210BD0011E9DA /* KMeans.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581F4152210BD0011E9DA /* KMeans.m */; };
+		13C581F8152210F40011E9DA /* KNNController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581F7152210F40011E9DA /* KNNController.m */; };
+		13C581FB152211390011E9DA /* KMeansController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581FA152211390011E9DA /* KMeansController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +48,24 @@
 		13B77592151B9E75003CCE88 /* SVMLight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SVMLight.framework; sourceTree = "<group>"; };
 		13B77594151BA2A4003CCE88 /* test.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.dat; sourceTree = "<group>"; };
 		13B77595151BA2A4003CCE88 /* train.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = train.dat; path = "/Users/sly/work/Machine-Learning-Visualization/MachineLearningVisualization/MachineLearningVisualization/train.dat"; sourceTree = "<absolute>"; };
+		13C39F0B151FDCD200A35C5D /* SVMLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVMLight.h; path = ../../SVMLight/SVMLight/SVMLight.h; sourceTree = "<group>"; };
+		13C39F0C151FDCD200A35C5D /* SVMLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVMLight.m; path = ../../SVMLight/SVMLight/SVMLight.m; sourceTree = "<group>"; };
+		13C581E4152210460011E9DA /* KMeansAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMeansAlgorithm.h; sourceTree = "<group>"; };
+		13C581E5152210460011E9DA /* KMeansAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMeansAlgorithm.m; sourceTree = "<group>"; };
+		13C581E71522106D0011E9DA /* KNNAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNAlgorithm.h; sourceTree = "<group>"; };
+		13C581E81522106D0011E9DA /* KNNAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNAlgorithm.m; sourceTree = "<group>"; };
+		13C581EA1522109F0011E9DA /* KNNView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNView.h; sourceTree = "<group>"; };
+		13C581EB1522109F0011E9DA /* KNNView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNView.m; sourceTree = "<group>"; };
+		13C581ED152210A90011E9DA /* KMeansView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMeansView.h; sourceTree = "<group>"; };
+		13C581EE152210A90011E9DA /* KMeansView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMeansView.m; sourceTree = "<group>"; };
+		13C581F0152210B40011E9DA /* KNN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNN.h; sourceTree = "<group>"; };
+		13C581F1152210B40011E9DA /* KNN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNN.m; sourceTree = "<group>"; };
+		13C581F3152210BD0011E9DA /* KMeans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMeans.h; sourceTree = "<group>"; };
+		13C581F4152210BD0011E9DA /* KMeans.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMeans.m; sourceTree = "<group>"; };
+		13C581F6152210F40011E9DA /* KNNController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNController.h; sourceTree = "<group>"; };
+		13C581F7152210F40011E9DA /* KNNController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNController.m; sourceTree = "<group>"; };
+		13C581F9152211390011E9DA /* KMeansController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMeansController.h; sourceTree = "<group>"; };
+		13C581FA152211390011E9DA /* KMeansController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMeansController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +114,10 @@
 		13B7753C151B95B8003CCE88 /* MachineLearningVisualization */ = {
 			isa = PBXGroup;
 			children = (
+				13C581E315220F3C0011E9DA /* Models */,
+				13C581E215220F1E0011E9DA /* Views */,
+				13C581E115220F180011E9DA /* Controllers */,
+				13C581DF15220F0D0011E9DA /* Algorithms */,
 				13B77545151B95B8003CCE88 /* MLAppDelegate.h */,
 				13B77546151B95B8003CCE88 /* MLAppDelegate.m */,
 				13B77548151B95B8003CCE88 /* MainStoryboard.storyboard */,
@@ -95,6 +125,8 @@
 				13B7754C151B95B8003CCE88 /* MLMasterViewController.m */,
 				13B7754E151B95B8003CCE88 /* MLDetailViewController.h */,
 				13B7754F151B95B8003CCE88 /* MLDetailViewController.m */,
+				13C39F0B151FDCD200A35C5D /* SVMLight.h */,
+				13C39F0C151FDCD200A35C5D /* SVMLight.m */,
 				13B7753D151B95B8003CCE88 /* Supporting Files */,
 			);
 			path = MachineLearningVisualization;
@@ -111,6 +143,50 @@
 				13B77544151B95B8003CCE88 /* MachineLearningVisualization-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		13C581DF15220F0D0011E9DA /* Algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				13C581E4152210460011E9DA /* KMeansAlgorithm.h */,
+				13C581E5152210460011E9DA /* KMeansAlgorithm.m */,
+				13C581E71522106D0011E9DA /* KNNAlgorithm.h */,
+				13C581E81522106D0011E9DA /* KNNAlgorithm.m */,
+			);
+			name = Algorithms;
+			sourceTree = "<group>";
+		};
+		13C581E115220F180011E9DA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				13C581F6152210F40011E9DA /* KNNController.h */,
+				13C581F7152210F40011E9DA /* KNNController.m */,
+				13C581F9152211390011E9DA /* KMeansController.h */,
+				13C581FA152211390011E9DA /* KMeansController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		13C581E215220F1E0011E9DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				13C581EA1522109F0011E9DA /* KNNView.h */,
+				13C581EB1522109F0011E9DA /* KNNView.m */,
+				13C581ED152210A90011E9DA /* KMeansView.h */,
+				13C581EE152210A90011E9DA /* KMeansView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		13C581E315220F3C0011E9DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				13C581F0152210B40011E9DA /* KNN.h */,
+				13C581F1152210B40011E9DA /* KNN.m */,
+				13C581F3152210BD0011E9DA /* KMeans.h */,
+				13C581F4152210BD0011E9DA /* KMeans.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +259,14 @@
 				13B77547151B95B8003CCE88 /* MLAppDelegate.m in Sources */,
 				13B7754D151B95B8003CCE88 /* MLMasterViewController.m in Sources */,
 				13B77550151B95B8003CCE88 /* MLDetailViewController.m in Sources */,
+				13C581E6152210460011E9DA /* KMeansAlgorithm.m in Sources */,
+				13C581E91522106D0011E9DA /* KNNAlgorithm.m in Sources */,
+				13C581EC1522109F0011E9DA /* KNNView.m in Sources */,
+				13C581EF152210A90011E9DA /* KMeansView.m in Sources */,
+				13C581F2152210B40011E9DA /* KNN.m in Sources */,
+				13C581F5152210BD0011E9DA /* KMeans.m in Sources */,
+				13C581F8152210F40011E9DA /* KNNController.m in Sources */,
+				13C581FB152211390011E9DA /* KMeansController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +388,7 @@
 				13B77555151B95B8003CCE88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1822,7 +1822,7 @@ void free_model(MODEL *model, int deep)
 }
 
 
-void read_documents(char *docfile, DOC ***docs, double **label, 
+void read_documents(const char *docfile, DOC ***docs, double **label, 
 		    long int *totwords, long int *totdoc)
 {
   char *line,*comment;
@@ -1989,7 +1989,7 @@ int parse_document(char *line, WORD *words, double *label,
   return(1);
 }
 
-double *read_alphas(char *alphafile,long totdoc)
+double *read_alphas(const char *alphafile,long totdoc)
      /* reads the alpha vector from a file as written by the
         write_alphas function */
 {
@@ -2108,7 +2108,7 @@ int check_learning_parms(LEARN_PARM *learn_parm, KERNEL_PARM *kernel_parm)
   return(1);
 }
 
-void nol_ll(char *file, long int *nol, long int *wol, long int *ll) 
+void nol_ll(const char *file, long int *nol, long int *wol, long int *ll) 
      /* Grep through file and count number of lines, maximum number of
         spaces per line, and longest line. */
 {

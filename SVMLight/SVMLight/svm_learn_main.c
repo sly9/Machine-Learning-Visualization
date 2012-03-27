@@ -376,7 +376,6 @@ void print_help()
   printf("                        examples into after transductive learning\n");
   printf("         -a string   -> write all alphas to this file after learning\n");
   printf("                        (in the same order as in the training set)\n");
-  wait_any_key();
   printf("\nMore details in:\n");
   printf("[1] T. Joachims, Making Large-Scale SVM Learning Practical. Advances in\n");
   printf("    Kernel Methods - Support Vector Learning, B. Schölkopf and C. Burges and\n");
