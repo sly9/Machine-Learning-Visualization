@@ -18,6 +18,7 @@
 
 @implementation MLDetailViewController
 @synthesize textfield = _textfield;
+@synthesize label = _label;
 
 @synthesize detailItem = _detailItem;
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;
@@ -61,6 +62,7 @@
 - (void)viewDidUnload
 {
     [self setTextfield:nil];
+    [self setLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     self.detailDescriptionLabel = nil;
@@ -103,5 +105,6 @@
     
     NSArray *result = [light testSample:samples];
     NSLog(@"tested result: %@",result.description);
+    self.label.text = result.description;
 }
 @end

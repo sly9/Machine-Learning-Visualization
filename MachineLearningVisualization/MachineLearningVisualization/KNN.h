@@ -10,4 +10,9 @@
 
 @interface KNN : UIView
 
+@property (nonatomic, strong) NSArray *trainingData;
+@property (nonatomic, strong) NSArray *testingData;
+@property (nonatomic, strong) NSArray *results;
+
+
 @end

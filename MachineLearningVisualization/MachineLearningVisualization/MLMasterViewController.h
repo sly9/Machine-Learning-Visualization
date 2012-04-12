@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class MLDetailViewController;
-
+@class KNNController;
 @interface MLMasterViewController : UITableViewController
 
-@property (strong, nonatomic) MLDetailViewController *detailViewController;
+@property (strong, nonatomic) UINavigationController *detailViewController;
+
+@property (strong, nonatomic) KNNController *knnController;
+@property (strong, nonatomic) MLDetailViewController *svmController;
 
 @end

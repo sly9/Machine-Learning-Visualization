@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KNNController : UIViewController
+@class KNNAlgorithm;
+@class KNN;
+@interface KNNController : UIViewController{
+    KNNAlgorithm *knnAlgorithm;
+    KNN *knn;
+}
+
+- (IBAction)test:(id)sender;
+
+
 
 @end

@@ -10,4 +10,8 @@
 
 @implementation KNNAlgorithm
 
+
+-(NSData *)classify:(NSData *)testData withPoints:(NSData *)trainingData{
+    
+}
 @end

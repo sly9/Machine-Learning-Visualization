@@ -10,4 +10,6 @@
 
 @interface KNNAlgorithm : NSObject
 
+
+-(NSData *)classify:(NSData *)testData withPoints:(NSData *)trainingData;
 @end

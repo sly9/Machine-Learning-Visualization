@@ -7,7 +7,7 @@
 //
 
 #import "MLMasterViewController.h"
-
+#import "KNNController.h"
 #import "MLDetailViewController.h"
 
 @interface MLMasterViewController () {
@@ -16,13 +16,22 @@
 @end
 
 @implementation MLMasterViewController
-
+@synthesize knnController=_knnController;
+@synthesize svmController=_svmController;
 @synthesize detailViewController = _detailViewController;
 
 - (void)awakeFromNib
 {
     self.clearsSelectionOnViewWillAppear = NO;
     self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+    UIStoryboard *storyboard = self.storyboard;
+
+    KNNController *knnController = [storyboard instantiateViewControllerWithIdentifier:@"KNNController"];
+    
+    MLDetailViewController *svmController = [storyboard instantiateViewControllerWithIdentifier:@"SVMController"];
+    
+    self.knnController = knnController;
+    self.svmController = svmController;
     [super awakeFromNib];
 }
 
@@ -34,7 +43,7 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
-    self.detailViewController = (MLDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.detailViewController = [self.splitViewController.viewControllers lastObject];
 }
 
 - (void)viewDidUnload
@@ -59,42 +68,6 @@
 }
 
 #pragma mark - Table View
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return _objects.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-
-    NSDate *object = [_objects objectAtIndex:indexPath.row];
-    cell.textLabel.text = [object description];
-    return cell;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-}
-
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -113,8 +86,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDate *object = [_objects objectAtIndex:indexPath.row];
-    self.detailViewController.detailItem = object;
+    NSLog(@"select %@",indexPath);
+//    NSDate *object = [_objects objectAtIndex:indexPath.row];
+
+    
+    if (indexPath.row == 0) {
+        self.detailViewController.viewControllers = [NSArray arrayWithObject:self.knnController];
+    } else {
+        self.detailViewController.viewControllers = [NSArray arrayWithObject:self.svmController];
+    }
+    
 }
 
 @end

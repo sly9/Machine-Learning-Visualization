@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1340A4AC1534CBA300FE7EBB /* MLDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1340A4AB1534CBA300FE7EBB /* MLDataPoint.m */; };
 		13B77537151B95B8003CCE88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B77536151B95B8003CCE88 /* UIKit.framework */; };
 		13B77539151B95B8003CCE88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B77538151B95B8003CCE88 /* Foundation.framework */; };
 		13B7753B151B95B8003CCE88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B7753A151B95B8003CCE88 /* CoreGraphics.framework */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1340A4AA1534CBA300FE7EBB /* MLDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDataPoint.h; sourceTree = "<group>"; };
+		1340A4AB1534CBA300FE7EBB /* MLDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLDataPoint.m; sourceTree = "<group>"; };
 		13B77532151B95B8003CCE88 /* MachineLearningVisualization.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MachineLearningVisualization.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B77536151B95B8003CCE88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		13B77538151B95B8003CCE88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -185,6 +188,8 @@
 				13C581F1152210B40011E9DA /* KNN.m */,
 				13C581F3152210BD0011E9DA /* KMeans.h */,
 				13C581F4152210BD0011E9DA /* KMeans.m */,
+				1340A4AA1534CBA300FE7EBB /* MLDataPoint.h */,
+				1340A4AB1534CBA300FE7EBB /* MLDataPoint.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 				13C581F5152210BD0011E9DA /* KMeans.m in Sources */,
 				13C581F8152210F40011E9DA /* KNNController.m in Sources */,
 				13C581FB152211390011E9DA /* KMeansController.m in Sources */,
+				1340A4AC1534CBA300FE7EBB /* MLDataPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

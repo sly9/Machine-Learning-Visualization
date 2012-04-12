@@ -345,19 +345,19 @@ void read_input_parameters_for_test(int argc,const char **argv, long int *verbos
                 exit(0);
         }
     }
-//    if((i+1)>=argc) {
-//        printf("\nNot enough input parameters!\n\n");
-//        exit(0);
-//    }
-//    strcpy (docfile, argv[i]);
-//    strcpy (modelfile, argv[i+1]);
-//    if((i+2)<argc) {
-//        strcpy (predictionsfile, argv[i+2]);
-//    }
-//    if(((*pred_format) != 0) && ((*pred_format) != 1)) {
-//        printf("\nOutput format can only take the values 0 or 1!\n\n");
-//        exit(0);
-//    }
+    //    if((i+1)>=argc) {
+    //        printf("\nNot enough input parameters!\n\n");
+    //        exit(0);
+    //    }
+    //    strcpy (docfile, argv[i]);
+    //    strcpy (modelfile, argv[i+1]);
+    //    if((i+2)<argc) {
+    //        strcpy (predictionsfile, argv[i+2]);
+    //    }
+    //    if(((*pred_format) != 0) && ((*pred_format) != 1)) {
+    //        printf("\nOutput format can only take the values 0 or 1!\n\n");
+    //        exit(0);
+    //    }
 }
 
 -(NSArray *) testSample:(NSArray *)samples{
@@ -382,10 +382,8 @@ void read_input_parameters_for_test(int argc,const char **argv, long int *verbos
     long max_docs,max_words_doc,lld;
     long queryid,slackid;
     totdoc=0;
-    long correct=0,incorrect=0,no_accuracy=0;
-    long res_a=0,res_b=0,res_c=0,wnum,pred_format;
+    long wnum,pred_format;
     long j;
-    double t1,runtime=0;
     double dist,doc_label,costfactor;
     char *line,*comment; 
     FILE *docfl;
@@ -399,24 +397,16 @@ void read_input_parameters_for_test(int argc,const char **argv, long int *verbos
     line = (char *)my_malloc(sizeof(char)*lld);
     words = (WORD *)my_malloc(sizeof(WORD)*(max_words_doc+10));
     
-//    model=read_model(modelfile);
+    //    model=read_model(modelfile);
     
     if(model->kernel_parm.kernel_type == 0) { /* linear kernel */
         /* compute weight vector */
         add_weight_vector_to_linear_model(model);
     }
-    
-    if(verbosity>=2) {
-        printf("Classifying test examples.."); fflush(stdout);
-    }
-    
     if ((docfl = fopen (testfile.UTF8String, "r")) == NULL)
     { perror (testfile.UTF8String); exit (1); }
-//    if ((predfl = fopen (predictionsfile, "w")) == NULL)
-//    { perror (predictionsfile); exit (1); }
     
     while((!feof(docfl)) && fgets(line,(int)lld,docfl)) {
-        if(line[0] == '#') continue;  /* line contains comments */
         parse_document(line,words,&doc_label,&queryid,&slackid,&costfactor,&wnum,
                        max_words_doc,&comment);
         totdoc++;
@@ -426,51 +416,19 @@ void read_input_parameters_for_test(int argc,const char **argv, long int *verbos
                     (words[j]).wnum=0;               /* model. Remove feature if   */
             }                                        /* necessary.                 */
             doc = create_example(-1,0,0,0.0,create_svector(words,comment,1.0));
-            t1=get_runtime();
             dist=classify_example_linear(model,doc);
-            runtime+=(get_runtime()-t1);
             free_example(doc,1);
         }
         else {                             /* non-linear kernel */
             doc = create_example(-1,0,0,0.0,create_svector(words,comment,1.0));
-            t1=get_runtime();
             dist=classify_example(model,doc);
-            runtime+=(get_runtime()-t1);
             free_example(doc,1);
         }
-            [labels addObject:[NSNumber numberWithDouble:dist]];
-        if(pred_format==1) { /* output the value of decision function */
-//            fprintf(predfl,"%.8g\n",dist);
-        }
-        if((int)(0.01+(doc_label*doc_label)) != 1) 
-        { no_accuracy=1; } /* test data is not binary labeled */
-        if(verbosity>=2) {
-            if(totdoc % 100 == 0) {
-                printf("%ld..",totdoc); fflush(stdout);
-            }
-        }
+        [labels addObject:[NSNumber numberWithDouble:dist]];
     }  
-//    fclose(predfl);
     fclose(docfl);
     free(line);
     free(words);
-//    free_model(model,1);
-    
-    if(verbosity>=2) {
-        printf("done\n");
-        
-        /*   Note by Gary Boone                     Date: 29 April 2000        */
-        /*      o Timing is inaccurate. The timer has 0.01 second resolution.  */
-        /*        Because classification of a single vector takes less than    */
-        /*        0.01 secs, the timer was underflowing.                       */
-        printf("Runtime (without IO) in cpu-seconds: %.2f\n",
-               (float)(runtime/100.0));
-        
-    }
-    if((!no_accuracy) && (verbosity>=1)) {
-        printf("Accuracy on test set: %.2f%% (%ld correct, %ld incorrect, %ld total)\n",(float)(correct)*100.0/totdoc,correct,incorrect,totdoc);
-        printf("Precision/recall on test set: %.2f%%/%.2f%%\n",(float)(res_a)*100.0/(res_a+res_b),(float)(res_a)*100.0/(res_a+res_c));
-    }
     return labels;
 }
 @end

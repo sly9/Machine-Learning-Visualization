@@ -19,5 +19,6 @@
 - (IBAction)trainData:(id)sender;
 - (IBAction)testData:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *textfield;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end

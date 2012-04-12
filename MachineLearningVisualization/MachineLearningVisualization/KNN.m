@@ -9,5 +9,5 @@
 #import "KNN.h"
 
 @implementation KNN
-
+@synthesize testingData,trainingData,results;
 @end
