@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1340A4AC1534CBA300FE7EBB /* MLDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1340A4AB1534CBA300FE7EBB /* MLDataPoint.m */; };
+		13820E77153B6DFD0056CD3F /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 13820E75153B6DFD0056CD3F /* mask.png */; };
+		13820E78153B6DFD0056CD3F /* mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13820E76153B6DFD0056CD3F /* mask@2x.png */; };
 		13B77537151B95B8003CCE88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B77536151B95B8003CCE88 /* UIKit.framework */; };
 		13B77539151B95B8003CCE88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B77538151B95B8003CCE88 /* Foundation.framework */; };
 		13B7753B151B95B8003CCE88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B7753A151B95B8003CCE88 /* CoreGraphics.framework */; };
@@ -16,7 +18,7 @@
 		13B77547151B95B8003CCE88 /* MLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B77546151B95B8003CCE88 /* MLAppDelegate.m */; };
 		13B7754A151B95B8003CCE88 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B77548151B95B8003CCE88 /* MainStoryboard.storyboard */; };
 		13B7754D151B95B8003CCE88 /* MLMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7754C151B95B8003CCE88 /* MLMasterViewController.m */; };
-		13B77550151B95B8003CCE88 /* MLDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7754F151B95B8003CCE88 /* MLDetailViewController.m */; };
+		13B77550151B95B8003CCE88 /* SVMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B7754F151B95B8003CCE88 /* SVMDetailViewController.m */; };
 		13B77593151B9E75003CCE88 /* SVMLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B77592151B9E75003CCE88 /* SVMLight.framework */; };
 		13B77596151BA2A4003CCE88 /* test.dat in Resources */ = {isa = PBXBuildFile; fileRef = 13B77594151BA2A4003CCE88 /* test.dat */; };
 		13B77597151BA2A4003CCE88 /* train.dat in Resources */ = {isa = PBXBuildFile; fileRef = 13B77595151BA2A4003CCE88 /* train.dat */; };
@@ -28,11 +30,16 @@
 		13C581F5152210BD0011E9DA /* KMeans.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581F4152210BD0011E9DA /* KMeans.m */; };
 		13C581F8152210F40011E9DA /* KNNController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581F7152210F40011E9DA /* KNNController.m */; };
 		13C581FB152211390011E9DA /* KMeansController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581FA152211390011E9DA /* KMeansController.m */; };
+		13F28E5C153BC29E0078F506 /* KNNSideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F28E5B153BC29E0078F506 /* KNNSideController.m */; };
+		13F28E60153BF7010078F506 /* KNNMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F28E5F153BF7010078F506 /* KNNMaskView.m */; };
+		13F28E62153C07330078F506 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F28E61153C07330078F506 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1340A4AA1534CBA300FE7EBB /* MLDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDataPoint.h; sourceTree = "<group>"; };
 		1340A4AB1534CBA300FE7EBB /* MLDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLDataPoint.m; sourceTree = "<group>"; };
+		13820E75153B6DFD0056CD3F /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
+		13820E76153B6DFD0056CD3F /* mask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mask@2x.png"; sourceTree = "<group>"; };
 		13B77532151B95B8003CCE88 /* MachineLearningVisualization.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MachineLearningVisualization.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B77536151B95B8003CCE88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		13B77538151B95B8003CCE88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,8 +53,8 @@
 		13B77549151B95B8003CCE88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		13B7754B151B95B8003CCE88 /* MLMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLMasterViewController.h; sourceTree = "<group>"; };
 		13B7754C151B95B8003CCE88 /* MLMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLMasterViewController.m; sourceTree = "<group>"; };
-		13B7754E151B95B8003CCE88 /* MLDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLDetailViewController.h; sourceTree = "<group>"; };
-		13B7754F151B95B8003CCE88 /* MLDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MLDetailViewController.m; sourceTree = "<group>"; };
+		13B7754E151B95B8003CCE88 /* SVMDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVMDetailViewController.h; sourceTree = "<group>"; };
+		13B7754F151B95B8003CCE88 /* SVMDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVMDetailViewController.m; sourceTree = "<group>"; };
 		13B77592151B9E75003CCE88 /* SVMLight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SVMLight.framework; sourceTree = "<group>"; };
 		13B77594151BA2A4003CCE88 /* test.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.dat; sourceTree = "<group>"; };
 		13B77595151BA2A4003CCE88 /* train.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = train.dat; path = "/Users/sly/work/Machine-Learning-Visualization/MachineLearningVisualization/MachineLearningVisualization/train.dat"; sourceTree = "<absolute>"; };
@@ -69,6 +76,11 @@
 		13C581F7152210F40011E9DA /* KNNController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNController.m; sourceTree = "<group>"; };
 		13C581F9152211390011E9DA /* KMeansController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMeansController.h; sourceTree = "<group>"; };
 		13C581FA152211390011E9DA /* KMeansController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMeansController.m; sourceTree = "<group>"; };
+		13F28E5A153BC29E0078F506 /* KNNSideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNSideController.h; sourceTree = "<group>"; };
+		13F28E5B153BC29E0078F506 /* KNNSideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNSideController.m; sourceTree = "<group>"; };
+		13F28E5E153BF7010078F506 /* KNNMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNMaskView.h; sourceTree = "<group>"; };
+		13F28E5F153BF7010078F506 /* KNNMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNMaskView.m; sourceTree = "<group>"; };
+		13F28E61153C07330078F506 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13F28E62153C07330078F506 /* QuartzCore.framework in Frameworks */,
 				13B77537151B95B8003CCE88 /* UIKit.framework in Frameworks */,
 				13B77539151B95B8003CCE88 /* Foundation.framework in Frameworks */,
 				13B7753B151B95B8003CCE88 /* CoreGraphics.framework in Frameworks */,
@@ -86,9 +99,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13820E70153B6C140056CD3F /* Masks */ = {
+			isa = PBXGroup;
+			children = (
+				13F28E5E153BF7010078F506 /* KNNMaskView.h */,
+				13F28E5F153BF7010078F506 /* KNNMaskView.m */,
+			);
+			name = Masks;
+			sourceTree = "<group>";
+		};
+		13820E74153B6DF10056CD3F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				13820E75153B6DFD0056CD3F /* mask.png */,
+				13820E76153B6DFD0056CD3F /* mask@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		13B77527151B95B8003CCE88 = {
 			isa = PBXGroup;
 			children = (
+				13F28E61153C07330078F506 /* QuartzCore.framework */,
 				13B7753C151B95B8003CCE88 /* MachineLearningVisualization */,
 				13B77535151B95B8003CCE88 /* Frameworks */,
 				13B77533151B95B8003CCE88 /* Products */,
@@ -117,6 +149,8 @@
 		13B7753C151B95B8003CCE88 /* MachineLearningVisualization */ = {
 			isa = PBXGroup;
 			children = (
+				13820E74153B6DF10056CD3F /* Resources */,
+				13820E70153B6C140056CD3F /* Masks */,
 				13C581E315220F3C0011E9DA /* Models */,
 				13C581E215220F1E0011E9DA /* Views */,
 				13C581E115220F180011E9DA /* Controllers */,
@@ -124,10 +158,6 @@
 				13B77545151B95B8003CCE88 /* MLAppDelegate.h */,
 				13B77546151B95B8003CCE88 /* MLAppDelegate.m */,
 				13B77548151B95B8003CCE88 /* MainStoryboard.storyboard */,
-				13B7754B151B95B8003CCE88 /* MLMasterViewController.h */,
-				13B7754C151B95B8003CCE88 /* MLMasterViewController.m */,
-				13B7754E151B95B8003CCE88 /* MLDetailViewController.h */,
-				13B7754F151B95B8003CCE88 /* MLDetailViewController.m */,
 				13C39F0B151FDCD200A35C5D /* SVMLight.h */,
 				13C39F0C151FDCD200A35C5D /* SVMLight.m */,
 				13B7753D151B95B8003CCE88 /* Supporting Files */,
@@ -162,8 +192,11 @@
 		13C581E115220F180011E9DA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				13C581F6152210F40011E9DA /* KNNController.h */,
-				13C581F7152210F40011E9DA /* KNNController.m */,
+				13B7754B151B95B8003CCE88 /* MLMasterViewController.h */,
+				13B7754C151B95B8003CCE88 /* MLMasterViewController.m */,
+				13B7754E151B95B8003CCE88 /* SVMDetailViewController.h */,
+				13B7754F151B95B8003CCE88 /* SVMDetailViewController.m */,
+				13F28E5D153BC2A70078F506 /* KNN */,
 				13C581F9152211390011E9DA /* KMeansController.h */,
 				13C581FA152211390011E9DA /* KMeansController.m */,
 			);
@@ -192,6 +225,17 @@
 				1340A4AB1534CBA300FE7EBB /* MLDataPoint.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		13F28E5D153BC2A70078F506 /* KNN */ = {
+			isa = PBXGroup;
+			children = (
+				13C581F6152210F40011E9DA /* KNNController.h */,
+				13C581F7152210F40011E9DA /* KNNController.m */,
+				13F28E5A153BC29E0078F506 /* KNNSideController.h */,
+				13F28E5B153BC29E0078F506 /* KNNSideController.m */,
+			);
+			name = KNN;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +294,8 @@
 				13B7754A151B95B8003CCE88 /* MainStoryboard.storyboard in Resources */,
 				13B77596151BA2A4003CCE88 /* test.dat in Resources */,
 				13B77597151BA2A4003CCE88 /* train.dat in Resources */,
+				13820E77153B6DFD0056CD3F /* mask.png in Resources */,
+				13820E78153B6DFD0056CD3F /* mask@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +309,7 @@
 				13B77543151B95B8003CCE88 /* main.m in Sources */,
 				13B77547151B95B8003CCE88 /* MLAppDelegate.m in Sources */,
 				13B7754D151B95B8003CCE88 /* MLMasterViewController.m in Sources */,
-				13B77550151B95B8003CCE88 /* MLDetailViewController.m in Sources */,
+				13B77550151B95B8003CCE88 /* SVMDetailViewController.m in Sources */,
 				13C581E6152210460011E9DA /* KMeansAlgorithm.m in Sources */,
 				13C581E91522106D0011E9DA /* KNNAlgorithm.m in Sources */,
 				13C581EC1522109F0011E9DA /* KNNView.m in Sources */,
@@ -273,6 +319,8 @@
 				13C581F8152210F40011E9DA /* KNNController.m in Sources */,
 				13C581FB152211390011E9DA /* KMeansController.m in Sources */,
 				1340A4AC1534CBA300FE7EBB /* MLDataPoint.m in Sources */,
+				13F28E5C153BC29E0078F506 /* KNNSideController.m in Sources */,
+				13F28E60153BF7010078F506 /* KNNMaskView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,10 @@
 
 #import "MLMasterViewController.h"
 #import "KNNController.h"
-#import "MLDetailViewController.h"
+#import "SVMDetailViewController.h"
+#import "MLAppDelegate.h"
+#import "KNNMaskView.h"
+#import "KNNSideController.h"
 
 @interface MLMasterViewController () {
     NSMutableArray *_objects;
@@ -28,7 +31,7 @@
 
     KNNController *knnController = [storyboard instantiateViewControllerWithIdentifier:@"KNNController"];
     
-    MLDetailViewController *svmController = [storyboard instantiateViewControllerWithIdentifier:@"SVMController"];
+    SVMDetailViewController *svmController = [storyboard instantiateViewControllerWithIdentifier:@"SVMDetailController"];
     
     self.knnController = knnController;
     self.svmController = svmController;
@@ -92,6 +95,11 @@
     
     if (indexPath.row == 0) {
         self.detailViewController.viewControllers = [NSArray arrayWithObject:self.knnController];
+        KNNMaskView *maskView = [[KNNMaskView alloc] init];
+        MLAppDelegate *delegate = (MLAppDelegate *)[UIApplication sharedApplication].delegate;
+        [delegate.window addSubview:maskView];
+
+
     } else {
         self.detailViewController.viewControllers = [NSArray arrayWithObject:self.svmController];
     }
