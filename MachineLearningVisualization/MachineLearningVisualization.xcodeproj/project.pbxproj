@@ -33,6 +33,7 @@
 		13F28E5C153BC29E0078F506 /* KNNSideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F28E5B153BC29E0078F506 /* KNNSideController.m */; };
 		13F28E60153BF7010078F506 /* KNNMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F28E5F153BF7010078F506 /* KNNMaskView.m */; };
 		13F28E62153C07330078F506 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F28E61153C07330078F506 /* QuartzCore.framework */; };
+		13F28E65153C14E80078F506 /* WelcomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F28E64153C14E70078F506 /* WelcomViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,8 @@
 		13F28E5E153BF7010078F506 /* KNNMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNMaskView.h; sourceTree = "<group>"; };
 		13F28E5F153BF7010078F506 /* KNNMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNMaskView.m; sourceTree = "<group>"; };
 		13F28E61153C07330078F506 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		13F28E63153C14E70078F506 /* WelcomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomViewController.h; sourceTree = "<group>"; };
+		13F28E64153C14E70078F506 /* WelcomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +202,8 @@
 				13F28E5D153BC2A70078F506 /* KNN */,
 				13C581F9152211390011E9DA /* KMeansController.h */,
 				13C581FA152211390011E9DA /* KMeansController.m */,
+				13F28E63153C14E70078F506 /* WelcomViewController.h */,
+				13F28E64153C14E70078F506 /* WelcomViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 				1340A4AC1534CBA300FE7EBB /* MLDataPoint.m in Sources */,
 				13F28E5C153BC29E0078F506 /* KNNSideController.m in Sources */,
 				13F28E60153BF7010078F506 /* KNNMaskView.m in Sources */,
+				13F28E65153C14E80078F506 /* WelcomViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

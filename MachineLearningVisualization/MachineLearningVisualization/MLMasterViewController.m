@@ -21,7 +21,6 @@
 @implementation MLMasterViewController
 @synthesize knnController=_knnController;
 @synthesize svmController=_svmController;
-@synthesize detailViewController = _detailViewController;
 
 - (void)awakeFromNib
 {
@@ -41,12 +40,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    self.detailViewController = [self.splitViewController.viewControllers lastObject];
 }
 
 - (void)viewDidUnload
@@ -60,15 +53,6 @@
     return YES;
 }
 
-- (void)insertNewObject:(id)sender
-{
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
 
 #pragma mark - Table View
 /*
@@ -94,16 +78,21 @@
 
     
     if (indexPath.row == 0) {
-        self.detailViewController.viewControllers = [NSArray arrayWithObject:self.knnController];
+        [self setDetailViewController:self.knnController];
         KNNMaskView *maskView = [[KNNMaskView alloc] init];
         MLAppDelegate *delegate = (MLAppDelegate *)[UIApplication sharedApplication].delegate;
         [delegate.window addSubview:maskView];
 
 
     } else {
-        self.detailViewController.viewControllers = [NSArray arrayWithObject:self.svmController];
+        [self setDetailViewController:self.svmController];
     }
     
+}
+
+-(void) setDetailViewController:(UIViewController *)controller
+{
+    self.splitViewController.viewControllers = [NSArray arrayWithObjects:[self.splitViewController.viewControllers objectAtIndex:0],controller, nil];
 }
 
 @end

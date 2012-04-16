@@ -12,8 +12,6 @@
 @class KNNController;
 @interface MLMasterViewController : UITableViewController
 
-@property (strong, nonatomic) UINavigationController *detailViewController;
-
 @property (strong, nonatomic) KNNController *knnController;
 @property (strong, nonatomic) SVMDetailViewController *svmController;
 
