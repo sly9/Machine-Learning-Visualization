@@ -5,7 +5,9 @@
 //  Created by Liuyi Sun on 3/27/12.
 //  Copyright (c) 2012 Carnegie Mellon University. All rights reserved.
 //
-
+#include <mach/mach.h>
+#include <mach/mach_time.h>
+#include <unistd.h>
 #import "KNNController.h"
 #import "KNN.h"
 #import "MLDataPoint.h"
@@ -20,7 +22,9 @@
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     if (self=[super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         _knn = [[KNN alloc] init];
-        decisionBoundaryDrawn=NO;
+        decisionBoundaryDrawn = NO;
+        queue = [[NSOperationQueue alloc] init];
+        lastTouchedPoint = nil;
     }
     return self;
 }
@@ -28,6 +32,8 @@
 -(id) initWithCoder:(NSCoder *)aDecoder {
     if (self=[super initWithCoder:aDecoder]) {
         _knn = [[KNN alloc] init];
+        decisionBoundaryDrawn = NO;
+        queue = [[NSOperationQueue alloc] init];
     }
     return self;
 }
@@ -61,21 +67,27 @@
     [self Log:@"removeAllData"];
 }
 -(void) drawDecisionBoundary{
-    [self drawDecisionBoundaryWithSize:512];
+    [self drawDecisionBoundaryWithSize:64];
 }
 
 
 -(void) drawDecisionBoundaryWithSize:(NSUInteger)size
 {
-    dispatch_queue_t queue = dispatch_get_global_queue(                                                       DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    //dispatch_queue_t queue = dispatch_get_global_queue(                                                       DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 
-    dispatch_async(queue, ^{
+    [queue cancelAllOperations];
+    operationId = mach_absolute_time();
+    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
         [self Log:@"drawDecisionBoundary"]; 
         decisionBoundaryDrawn=YES;
-
+        uint64_t oId = operationId;
         NSArray *labels = [_knn decisionBoundaryForStep:size onViewSize:self.view.frame.size];
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            if (operationId !=oId) {
+                NSLog(@"operation cancelled!");
+                return;
+            }
             [knnView updateDecisionBoundaryWithLabels:labels andSize:size];
             if (size > 2) {
                 NSUInteger newSize = size/2;
@@ -84,7 +96,25 @@
             
         });
         
-    });
+    }];
+    [queue addOperation:operation]; 
+//    
+//    dispatch_async(queue, ^{
+//        [self Log:@"drawDecisionBoundary"]; 
+//        decisionBoundaryDrawn=YES;
+//
+//        NSArray *labels = [_knn decisionBoundaryForStep:size onViewSize:self.view.frame.size];
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [knnView updateDecisionBoundaryWithLabels:labels andSize:size];
+//            if (size > 2) {
+//                NSUInteger newSize = size/2;
+//                [self drawDecisionBoundaryWithSize:newSize];
+//            }
+//            
+//        });
+//        
+//    });
 }
 
 -(void) Log:(NSString *)str{
@@ -119,9 +149,7 @@
 -(void) addDataTouch:(UIGestureRecognizer *)gr
 {
     CGPoint location  = [gr locationInView:self.view];
-    
-    NSLog(@"touch ,%@",NSStringFromCGPoint(location));
-    
+    //NSLog(@"touch ,%@",NSStringFromCGPoint(location));
     switch (gr.state) {
         case UIGestureRecognizerStatePossible: {
             //NSLog(@"a GR should never fire in state possible!");
@@ -129,23 +157,42 @@
         }
         case UIGestureRecognizerStateBegan: {   
             //add circle to model
-            [_knn addDataPoint:[[MLDataPoint alloc] initWithCGPoint:location andLabel:labelForNewData]];
+            MLDataPoint *aPoint = [_knn nearestDataPointFromPoint:location];
+            if (aPoint == nil) {
+                MLDataPoint *newPoint = [[MLDataPoint alloc] initWithCGPoint:location andLabel:labelForNewData];
+                [_knn addDataPoint:newPoint];
+                
+                lastTouchedPoint = newPoint;                
+            } else {
+                lastTouchedPoint = aPoint;
+            }
             break;
         }   
         case UIGestureRecognizerStateChanged:
-        { break;
+        { 
+            MLDataPoint *to = [[MLDataPoint alloc] initWithCGPoint:location andLabel:lastTouchedPoint.label];
+            [_knn moveDataPointFrom:lastTouchedPoint to:to];
+            lastTouchedPoint = to;
+            break;
         }
         case UIGestureRecognizerStateEnded:
-        {   break;
+        {   
+            lastTouchedPoint = nil;
+            break;
         }
         case UIGestureRecognizerStateCancelled:
         case UIGestureRecognizerStateFailed:
         {
+            lastTouchedPoint = nil;
             break;
         }
     }
 //    KNNView *knnView = (KNNView *)self.view;
     [knnView updateView];
+
+    if (decisionBoundaryDrawn) {
+        [self drawDecisionBoundary];
+    }
     
 }
 -(void) classifyDataTouch:(UIGestureRecognizer *)gr

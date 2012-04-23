@@ -10,19 +10,22 @@
 
 @class MLDataPoint;
 @interface KNN : NSObject {
-    NSMutableSet *dataPoints;
+
 }
 
-
-@property (nonatomic, strong) NSArray *trainingData;
-@property (nonatomic, strong) NSArray *testingData;
-@property (nonatomic, strong) NSArray *results;
-@property (nonatomic, assign) NSUInteger k;
-@property (nonatomic, readonly) NSMutableSet *dataPoints;
+@property (atomic, assign) NSUInteger k;
+@property (atomic, readonly) NSMutableSet *dataPoints;
+@property (atomic, readonly) NSMutableSet *pointsToAdd;
+@property (atomic, readonly) NSMutableDictionary *pointsToMove;
+@property (atomic, readonly) NSMutableSet *pointsToDelete;
 
 -(void) addDataPoint:(MLDataPoint *)dataPoint;
+-(void) moveDataPointFrom:(MLDataPoint *)from to:(MLDataPoint *)to;
+
 -(NSUInteger) classify:(CGPoint)point;
 
 -(NSArray *) decisionBoundaryForStep:(NSUInteger)step onViewSize:(CGSize)size;
+-(void) clearBuffer;
+- (MLDataPoint *)nearestDataPointFromPoint:(CGPoint)location;
 
 @end

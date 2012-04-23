@@ -17,6 +17,9 @@
     if (self=[super initWithCoder:aDecoder]) {
         decisionBoundaryView = [[UIView alloc] initWithFrame:self.frame];
         circlesView = [[UIView alloc] initWithFrame:self.frame];
+        
+
+        
         [self addSubview:decisionBoundaryView];
         [self addSubview:circlesView];
         
@@ -26,7 +29,9 @@
 }
 
 -(void)updateView{
-    for (MLDataPoint *point in self.knn.dataPoints) {
+    [CATransaction setDisableActions:YES];
+
+    for (MLDataPoint *point in self.knn.pointsToAdd) {
         if ([circles objectForKey:point]) {
             continue;
         }
@@ -46,27 +51,39 @@
         [circles setObject:layer forKey:point];
     }
     
+    for (MLDataPoint *fromPoint in self.knn.pointsToMove.allKeys) {
+        CALayer *layer = [circles objectForKey:fromPoint];
+        MLDataPoint *toPoint = [self.knn.pointsToMove objectForKey:fromPoint];
+        
+        layer.position = CGPointMake(toPoint.x, toPoint.y);
+        [circles removeObjectForKey:fromPoint];
+        [circles setObject:layer forKey:toPoint];
+    }
+    
+    for (MLDataPoint *point in self.knn.pointsToDelete) {
+        CALayer *layer = [circles objectForKey:point];
+        [layer removeFromSuperlayer];
+    }
+    
+    [self.knn clearBuffer];
 }
 
 -(void)updateDecisionBoundaryWithLabels:(NSArray *)labels andSize:(NSUInteger)step{
-    NSLog(@"updateDecision Boundary with step %d",step);
+    // NSLog(@"updateDecision Boundary with step %d",step);
     [decisionBoundaryView removeFromSuperview];
     decisionBoundaryView = [[UIView alloc] initWithFrame:
                             CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     int width = self.frame.size.width;
     int height = self.frame.size.height;
+    // CGRect bound = CGRectMake(0, 0, width*2, height*2);
+    // decisionBoundaryView.bounds = bound;
+    
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 
-    CGContextRef context = CGBitmapContextCreate(NULL, 
-                                                 width, 
-                                                 height, 
-                                                 8,                      /* bits per component*/
-                                                 width * 4,   /* bytes per row */
-                                                 colorSpace, 
-                                                 kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);;
+    CGContextRef context = CGBitmapContextCreate(NULL,width,height,8,width * 4,colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
     int i = 0;
-    for (int x=step/2; x<width+step; x=x+step) {
-        for (int y=step/2; y<height+step; y=y+step) {
+    for (int x=step/2; x<=width+step*1.5; x=x+step) {
+        for (int y=step/2; y<=height+step*1.5; y=y+step) {
             NSUInteger label = [[labels objectAtIndex:i] unsignedIntValue];
             //CALayer *layer = [CALayer layer];
             if (label == 0) {

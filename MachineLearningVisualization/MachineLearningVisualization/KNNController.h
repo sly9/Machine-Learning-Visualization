@@ -11,12 +11,17 @@
 @class KNN;
 @class KNNSideController;
 @class KNNView;
+@class MLDataPoint;
 @interface KNNController : UIViewController<UIGestureRecognizerDelegate>{
     /*for adding new datas:*/
     NSUInteger labelForNewData;
     BOOL classifyStatus;
     KNNView *knnView;
     BOOL decisionBoundaryDrawn;
+    NSOperationQueue *queue;
+    uint64_t operationId;
+    
+    MLDataPoint *lastTouchedPoint;
 }
 
 @property (nonatomic, weak) KNNSideController *sideController;
