@@ -8,6 +8,9 @@
 
 #import "KNNSideController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MLMasterViewController.h"
+#import "KNNController.h"
+#import "KNN.h"
 @interface KNNSideController ()
 
 @end
@@ -16,6 +19,9 @@
 @synthesize firstView;
 @synthesize secondView;
 @synthesize switchButton;
+@synthesize console;
+@synthesize kLabel;
+@synthesize mainController=_mainController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +40,6 @@
     self.secondView.hidden = YES;
     self.firstView.hidden = NO;
     self.secondView.layer.transform = CATransform3DMakeRotation(M_PI,0.0,1.0,0.0);
-    
 }
 
 - (void)viewDidUnload
@@ -42,13 +47,22 @@
     [self setSecondView:nil];
     [self setFirstView:nil];
     [self setSwitchButton:nil];
+    [self setConsole:nil];
+    [self setKLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
+- (void) viewWillAppear:(BOOL)animated
+{
+    MLMasterViewController *masterViewController = [self.navigationController.viewControllers objectAtIndex:0];
+    self.mainController = masterViewController.knnController;
+    self.mainController.sideController = self;
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft||interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
 - (IBAction)switchStatus:(id)sender {
@@ -72,9 +86,43 @@
             } else {
                 self.switchButton.title = @"classify";
             }
-            
+            self.mainController.classifyStatus = classificationStatus;
         }];
     }];
 }
 
+- (IBAction)changeK:(id)sender {
+    NSUInteger newK = (NSUInteger)((UISlider *)sender).value;
+    NSUInteger currentK = self.mainController.k;
+    if (newK != currentK) {
+        self.mainController.k=newK;
+        self.mainController.knn.k=newK;
+        self.kLabel.text = [NSString stringWithFormat:@"K=%d",newK];
+        [self appendLog:self.kLabel.text];
+    }
+}
+
+- (IBAction)decisionBoundary:(id)sender {
+    [self.mainController drawDecisionBoundary];
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"id: %@",segue.identifier);
+}
+
+-(void) appendLog:(NSString *)log
+{
+    NSLog(@"append log %@!",log);
+//    self.console.text=[NSString stringWithFormat:@"%@\n%@", self.console.text,log];
+}
+- (IBAction)deleteDataPoint:(id)sender {
+    [self.mainController deleteSelectedData];
+}
+
+- (IBAction)clearDataPoint:(id)sender {
+    [self.mainController removeAllData];
+}
+- (IBAction)changeLabel:(id)sender {
+    [self.mainController changeLabel:((UISegmentedControl *)sender).selectedSegmentIndex];
+}
 @end

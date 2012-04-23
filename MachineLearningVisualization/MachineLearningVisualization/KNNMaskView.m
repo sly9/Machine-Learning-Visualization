@@ -7,16 +7,22 @@
 //
 
 #import "KNNMaskView.h"
-
+#import "MLAppDelegate.h"
 @implementation KNNMaskView
 
 - (id)init
 {
-    if (self = [super initWithFrame:[[UIScreen mainScreen] bounds]]) {
+    //MLAppDelegate *delegate = (MLAppDelegate *)[UIApplication sharedApplication].delegate;
+    
+
+    
+    if (self = [super initWithFrame:CGRectMake(0, 0, 1024, 768)]) {
         // Initialization code
         UIImage *image = [UIImage imageNamed:@"mask.png"];
         UIImageView *imageView=[[UIImageView alloc] initWithImage:image];
         imageView.frame = self.frame;
+        NSLog(@"%@",NSStringFromCGRect(self.frame));
+        
         [self addSubview:imageView];
         
         UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];

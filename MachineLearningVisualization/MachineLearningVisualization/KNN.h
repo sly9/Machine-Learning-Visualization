@@ -8,11 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KNN : UIView
+@class MLDataPoint;
+@interface KNN : NSObject {
+    NSMutableSet *dataPoints;
+}
+
 
 @property (nonatomic, strong) NSArray *trainingData;
 @property (nonatomic, strong) NSArray *testingData;
 @property (nonatomic, strong) NSArray *results;
+@property (nonatomic, assign) NSUInteger k;
+@property (nonatomic, readonly) NSMutableSet *dataPoints;
 
+-(void) addDataPoint:(MLDataPoint *)dataPoint;
+-(NSUInteger) classify:(CGPoint)point;
+
+-(NSArray *) decisionBoundaryForStep:(NSUInteger)step onViewSize:(CGSize)size;
 
 @end

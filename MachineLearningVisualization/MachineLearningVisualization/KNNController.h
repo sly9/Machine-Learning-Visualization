@@ -8,15 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@class KNNAlgorithm;
 @class KNN;
-@interface KNNController : UIViewController{
-    KNNAlgorithm *knnAlgorithm;
-    KNN *knn;
+@class KNNSideController;
+@class KNNView;
+@interface KNNController : UIViewController<UIGestureRecognizerDelegate>{
+    /*for adding new datas:*/
+    NSUInteger labelForNewData;
+    BOOL classifyStatus;
+    KNNView *knnView;
+    BOOL decisionBoundaryDrawn;
 }
 
-- (IBAction)test:(id)sender;
+@property (nonatomic, weak) KNNSideController *sideController;
+@property (nonatomic, assign) NSUInteger k;
+@property (nonatomic, assign) BOOL classifyStatus;
+@property (nonatomic, strong) KNN *knn;
 
-
-
+-(void) deleteSelectedData;
+-(void) removeAllData;
+-(void) drawDecisionBoundary;
+-(void) changeLabel:(NSUInteger)label;
 @end

@@ -22,8 +22,6 @@
 		13B77593151B9E75003CCE88 /* SVMLight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B77592151B9E75003CCE88 /* SVMLight.framework */; };
 		13B77596151BA2A4003CCE88 /* test.dat in Resources */ = {isa = PBXBuildFile; fileRef = 13B77594151BA2A4003CCE88 /* test.dat */; };
 		13B77597151BA2A4003CCE88 /* train.dat in Resources */ = {isa = PBXBuildFile; fileRef = 13B77595151BA2A4003CCE88 /* train.dat */; };
-		13C581E6152210460011E9DA /* KMeansAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581E5152210460011E9DA /* KMeansAlgorithm.m */; };
-		13C581E91522106D0011E9DA /* KNNAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581E81522106D0011E9DA /* KNNAlgorithm.m */; };
 		13C581EC1522109F0011E9DA /* KNNView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581EB1522109F0011E9DA /* KNNView.m */; };
 		13C581EF152210A90011E9DA /* KMeansView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581EE152210A90011E9DA /* KMeansView.m */; };
 		13C581F2152210B40011E9DA /* KNN.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581F1152210B40011E9DA /* KNN.m */; };
@@ -61,10 +59,6 @@
 		13B77595151BA2A4003CCE88 /* train.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = train.dat; path = "/Users/sly/work/Machine-Learning-Visualization/MachineLearningVisualization/MachineLearningVisualization/train.dat"; sourceTree = "<absolute>"; };
 		13C39F0B151FDCD200A35C5D /* SVMLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVMLight.h; path = ../../SVMLight/SVMLight/SVMLight.h; sourceTree = "<group>"; };
 		13C39F0C151FDCD200A35C5D /* SVMLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVMLight.m; path = ../../SVMLight/SVMLight/SVMLight.m; sourceTree = "<group>"; };
-		13C581E4152210460011E9DA /* KMeansAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMeansAlgorithm.h; sourceTree = "<group>"; };
-		13C581E5152210460011E9DA /* KMeansAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMeansAlgorithm.m; sourceTree = "<group>"; };
-		13C581E71522106D0011E9DA /* KNNAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNAlgorithm.h; sourceTree = "<group>"; };
-		13C581E81522106D0011E9DA /* KNNAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNAlgorithm.m; sourceTree = "<group>"; };
 		13C581EA1522109F0011E9DA /* KNNView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNView.h; sourceTree = "<group>"; };
 		13C581EB1522109F0011E9DA /* KNNView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNView.m; sourceTree = "<group>"; };
 		13C581ED152210A90011E9DA /* KMeansView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMeansView.h; sourceTree = "<group>"; };
@@ -120,6 +114,15 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		13969E42153D113500A37F5A /* KNN */ = {
+			isa = PBXGroup;
+			children = (
+				13C581EA1522109F0011E9DA /* KNNView.h */,
+				13C581EB1522109F0011E9DA /* KNNView.m */,
+			);
+			name = KNN;
+			sourceTree = "<group>";
+		};
 		13B77527151B95B8003CCE88 = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +160,6 @@
 				13C581E315220F3C0011E9DA /* Models */,
 				13C581E215220F1E0011E9DA /* Views */,
 				13C581E115220F180011E9DA /* Controllers */,
-				13C581DF15220F0D0011E9DA /* Algorithms */,
 				13B77545151B95B8003CCE88 /* MLAppDelegate.h */,
 				13B77546151B95B8003CCE88 /* MLAppDelegate.m */,
 				13B77548151B95B8003CCE88 /* MainStoryboard.storyboard */,
@@ -181,17 +183,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13C581DF15220F0D0011E9DA /* Algorithms */ = {
-			isa = PBXGroup;
-			children = (
-				13C581E4152210460011E9DA /* KMeansAlgorithm.h */,
-				13C581E5152210460011E9DA /* KMeansAlgorithm.m */,
-				13C581E71522106D0011E9DA /* KNNAlgorithm.h */,
-				13C581E81522106D0011E9DA /* KNNAlgorithm.m */,
-			);
-			name = Algorithms;
-			sourceTree = "<group>";
-		};
 		13C581E115220F180011E9DA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,8 +202,7 @@
 		13C581E215220F1E0011E9DA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				13C581EA1522109F0011E9DA /* KNNView.h */,
-				13C581EB1522109F0011E9DA /* KNNView.m */,
+				13969E42153D113500A37F5A /* KNN */,
 				13C581ED152210A90011E9DA /* KMeansView.h */,
 				13C581EE152210A90011E9DA /* KMeansView.m */,
 			);
@@ -315,8 +305,6 @@
 				13B77547151B95B8003CCE88 /* MLAppDelegate.m in Sources */,
 				13B7754D151B95B8003CCE88 /* MLMasterViewController.m in Sources */,
 				13B77550151B95B8003CCE88 /* SVMDetailViewController.m in Sources */,
-				13C581E6152210460011E9DA /* KMeansAlgorithm.m in Sources */,
-				13C581E91522106D0011E9DA /* KNNAlgorithm.m in Sources */,
 				13C581EC1522109F0011E9DA /* KNNView.m in Sources */,
 				13C581EF152210A90011E9DA /* KMeansView.m in Sources */,
 				13C581F2152210B40011E9DA /* KNN.m in Sources */,
@@ -358,6 +346,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -373,6 +362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -384,6 +374,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -393,6 +384,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;

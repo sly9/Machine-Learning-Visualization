@@ -50,7 +50,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return YES;
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft||interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
 
@@ -80,9 +80,8 @@
     if (indexPath.row == 0) {
         [self setDetailViewController:self.knnController];
         KNNMaskView *maskView = [[KNNMaskView alloc] init];
-        MLAppDelegate *delegate = (MLAppDelegate *)[UIApplication sharedApplication].delegate;
-        [delegate.window addSubview:maskView];
 
+        [self.splitViewController.view addSubview:maskView];
 
     } else {
         [self setDetailViewController:self.svmController];
@@ -94,5 +93,8 @@
 {
     self.splitViewController.viewControllers = [NSArray arrayWithObjects:[self.splitViewController.viewControllers objectAtIndex:0],controller, nil];
 }
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"id: %@,description:%@",segue.identifier, sender);
+}
 @end

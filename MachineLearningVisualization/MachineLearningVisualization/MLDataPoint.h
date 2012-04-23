@@ -14,5 +14,6 @@
 @property (nonatomic, assign) NSUInteger label;
 
 -(id) initWithX:(CGFloat)x Y:(CGFloat)y andLabel:(NSUInteger)label;
+-(id) initWithCGPoint:(CGPoint)p andLabel:(NSUInteger)label;
 
 @end

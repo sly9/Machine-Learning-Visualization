@@ -7,23 +7,27 @@
 //
 
 #import "KNNController.h"
-#import "KNNAlgorithm.h"
 #import "KNN.h"
 #import "MLDataPoint.h"
-@implementation KNNController 
+#import "KNNSideController.h"
+#import "KNNView.h"
 
+@implementation KNNController 
+@synthesize sideController=_sideController;
+@synthesize k=_k;
+@synthesize knn=_knn;
+@synthesize classifyStatus=classifyStatus;
 -(id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     if (self=[super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        knnAlgorithm = [[KNNAlgorithm alloc] init]; 
-        knn = [[KNN alloc] init];
+        _knn = [[KNN alloc] init];
+        decisionBoundaryDrawn=NO;
     }
     return self;
 }
 
 -(id) initWithCoder:(NSCoder *)aDecoder {
     if (self=[super initWithCoder:aDecoder]) {
-        knnAlgorithm = [[KNNAlgorithm alloc] init];         
-        knn = [[KNN alloc] init];
+        _knn = [[KNN alloc] init];
     }
     return self;
 }
@@ -32,32 +36,169 @@
     [super viewDidUnload];
 }
 
-- (IBAction)test:(id)sender {
-    MLDataPoint *p = [[MLDataPoint alloc] initWithX:100 Y:100 andLabel:0];
-    MLDataPoint *p1 = [[MLDataPoint alloc] initWithX:500 Y:500 andLabel:1];
-    MLDataPoint *p2 = [[MLDataPoint alloc] initWithX:100 Y:200 andLabel:0];
-    MLDataPoint *p3 = [[MLDataPoint alloc] initWithX:200 Y:100 andLabel:0];
-    MLDataPoint *p4 = [[MLDataPoint alloc] initWithX:500 Y:100 andLabel:0];
-    MLDataPoint *p5 = [[MLDataPoint alloc] initWithX:300 Y:400 andLabel:1];
-    MLDataPoint *p6 = [[MLDataPoint alloc] initWithX:400 Y:100 andLabel:1];
-    NSArray *training = [NSArray arrayWithObjects:p,p1,p2,p3,p4,p5,p6, nil];
+- (void) viewDidLoad {
     
-    NSMutableArray *testing = [[NSMutableArray alloc] init];
-    for (int i=0; i<600; i+=10) {
-        for (int j=0; j<600; j+=10) {
-            p = [[MLDataPoint alloc] initWithX:i Y:j andLabel:0];
-            [testing addObject:p];
-        }
-    }
-    
-    //knnAlgorithm classify:<#(NSData *)#> withPoints:<#(NSData *)#>
-    
+    UILongPressGestureRecognizer *gestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(touch:)];
+    gestureRecognizer.minimumPressDuration = 0;
+    [self.view addGestureRecognizer:gestureRecognizer];
+    gestureRecognizer.delegate = self;
+    knnView = (KNNView *) self.view;
+    knnView.knn = _knn;
 }
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft||interfaceOrientation == UIInterfaceOrientationLandscapeRight);
+    return YES;
+//    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft||interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
+-(void) deleteSelectedData
+{
+    [self Log:@"deleteSelectedData"];
+}
+-(void) removeAllData
+{
+    [self Log:@"removeAllData"];
+}
+-(void) drawDecisionBoundary{
+    [self drawDecisionBoundaryWithSize:512];
+}
+
+
+-(void) drawDecisionBoundaryWithSize:(NSUInteger)size
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(                                                       DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+    dispatch_async(queue, ^{
+        [self Log:@"drawDecisionBoundary"]; 
+        decisionBoundaryDrawn=YES;
+
+        NSArray *labels = [_knn decisionBoundaryForStep:size onViewSize:self.view.frame.size];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [knnView updateDecisionBoundaryWithLabels:labels andSize:size];
+            if (size > 2) {
+                NSUInteger newSize = size/2;
+                [self drawDecisionBoundaryWithSize:newSize];
+            }
+            
+        });
+        
+    });
+}
+
+-(void) Log:(NSString *)str{
+    [self.sideController appendLog:str];
+}
+
+#pragma mark gesture recognizer delegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
+// called before touchesBegan:withEvent: is called on the gesture recognizer for a new touch. return NO to prevent the gesture recognizer from seeing this touch
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    // If we're in ruler editing mode, don't let the paint gestures see a touch unless the ruler gesture has begun
+    //    if (mRulerGR && mRulerGR.state == UIGestureRecognizerStatePossible) {
+    //        return (gestureRecognizer == mRulerGR);
+    //    }
+    
+    // If a touch goes down on the slider or buttons, we shouldn't paint with it
+    return YES;
+}
+-(void) touch:(UIGestureRecognizer *)gr {
+    if (classifyStatus) {
+        [self classifyDataTouch:gr];        
+    } else {
+        [self addDataTouch:gr];
+    }
+}
+
+-(void) addDataTouch:(UIGestureRecognizer *)gr
+{
+    CGPoint location  = [gr locationInView:self.view];
+    
+    NSLog(@"touch ,%@",NSStringFromCGPoint(location));
+    
+    switch (gr.state) {
+        case UIGestureRecognizerStatePossible: {
+            //NSLog(@"a GR should never fire in state possible!");
+            break;
+        }
+        case UIGestureRecognizerStateBegan: {   
+            //add circle to model
+            [_knn addDataPoint:[[MLDataPoint alloc] initWithCGPoint:location andLabel:labelForNewData]];
+            break;
+        }   
+        case UIGestureRecognizerStateChanged:
+        { break;
+        }
+        case UIGestureRecognizerStateEnded:
+        {   break;
+        }
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateFailed:
+        {
+            break;
+        }
+    }
+//    KNNView *knnView = (KNNView *)self.view;
+    [knnView updateView];
+    
+}
+-(void) classifyDataTouch:(UIGestureRecognizer *)gr
+{
+    switch (gr.state) {
+        case UIGestureRecognizerStatePossible: {
+            //NSLog(@"a GR should never fire in state possible!");
+            break;
+        }
+        case UIGestureRecognizerStateBegan: {   
+            //add circle to model
+            break;
+        }   
+        case UIGestureRecognizerStateChanged:
+        { 
+            break;
+        }
+        case UIGestureRecognizerStateEnded:
+        {   
+            [self Log:@"Classify a data"];
+            NSUInteger c = [_knn classify:[gr locationInView:gr.view]];
+            if (c==0) {
+                [self Log:@"positive!"];
+            }else {
+                [self Log:@"negative!"];
+            }
+            break;
+        }
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateFailed:
+        {
+            break;
+        }
+    }
+
+    
+}
+
+
+
+-(void) changeLabel:(NSUInteger)label{
+    labelForNewData=label;
+    [self
+     Log:[NSString stringWithFormat:@"labelForNewData = %d",label]];
+}
+
+-(void) setK:(NSUInteger)k {
+    _k = k;
+    _knn.k = k;
+    
+    if (classifyStatus && decisionBoundaryDrawn) {
+        [self drawDecisionBoundary];
+    }
+    
+}
 @end
