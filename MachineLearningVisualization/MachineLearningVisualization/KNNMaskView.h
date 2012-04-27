@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KNNMaskView : UIView
+@interface KNNMaskView : UIView<UIScrollViewDelegate> {
+    UIScrollView *scrollView;
+}
 
 @end

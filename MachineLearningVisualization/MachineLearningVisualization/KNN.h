@@ -22,8 +22,8 @@
 -(void) addDataPoint:(MLDataPoint *)dataPoint;
 -(void) moveDataPointFrom:(MLDataPoint *)from to:(MLDataPoint *)to;
 
--(NSUInteger) classify:(CGPoint)point;
-
+//-(NSUInteger) classify:(CGPoint)point;
+-(NSArray *) nearestKPoints:(CGPoint)point;
 -(NSArray *) decisionBoundaryForStep:(NSUInteger)step onViewSize:(CGSize)size;
 -(void) clearBuffer;
 - (MLDataPoint *)nearestDataPointFromPoint:(CGPoint)location;

@@ -67,7 +67,7 @@
     [self Log:@"removeAllData"];
 }
 -(void) drawDecisionBoundary{
-    [self drawDecisionBoundaryWithSize:64];
+    [self drawDecisionBoundaryWithSize:32];
 }
 
 
@@ -89,7 +89,7 @@
                 return;
             }
             [knnView updateDecisionBoundaryWithLabels:labels andSize:size];
-            if (size > 2) {
+            if (size > 4) {
                 NSUInteger newSize = size/2;
                 [self drawDecisionBoundaryWithSize:newSize];
             }
@@ -208,17 +208,19 @@
         }   
         case UIGestureRecognizerStateChanged:
         { 
+            //[self Log:@"Classify a data"];
+            //NSArray *nearestK = [_knn nearestKPoints:[gr locationInView:gr.view]];
+            //NSLog(@"nearest k points: %@",nearestK);
+            
             break;
         }
         case UIGestureRecognizerStateEnded:
         {   
             [self Log:@"Classify a data"];
-            NSUInteger c = [_knn classify:[gr locationInView:gr.view]];
-            if (c==0) {
-                [self Log:@"positive!"];
-            }else {
-                [self Log:@"negative!"];
-            }
+            CGPoint location=[gr locationInView:gr.view];
+            NSArray *nearestK = [_knn nearestKPoints:location];
+            NSLog(@"nearest k points: %@",nearestK);
+            [knnView drawDecisionForPoint:location withNeighbors:nearestK];
             break;
         }
         case UIGestureRecognizerStateCancelled:

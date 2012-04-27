@@ -34,43 +34,37 @@
     //key:from, value:to
     [_pointsToMove setObject:to forKey:from];
 }
--(NSUInteger) classify:(CGPoint)point{
+
+-(NSArray *) nearestKPoints:(CGPoint)point {
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    
     NSMutableArray *datas = [[NSMutableArray alloc] initWithCapacity:_dataPoints.count];
     for (MLDataPoint *p in _dataPoints) {
         [datas addObject:p];
     }
-    [datas sortUsingFunction:comparePointDistances context:(void *)[NSValue valueWithCGPoint:point]];
-    
-    int i=0;
-    int pos=0;
-    int neg=0;
-    for (MLDataPoint *p in datas) {
-        if (i==_k) {
-            break;
+    int count = datas.count;
+
+    for (int i=0; i<_k; i++) {
+        int minIndex = i;
+        MLDataPoint *nearestPoint = [datas objectAtIndex:i];
+        double distance = (nearestPoint.x - point.x)*(nearestPoint.x - point.x)+(nearestPoint.y - point.y)*(nearestPoint.y - point.y);
+        for (int j=i+1; j<count; j++) {
+            MLDataPoint *currentPoint = [datas objectAtIndex:j];
+            double newDistance = (currentPoint.x - point.x)*(currentPoint.x - point.x)+(currentPoint.y - point.y)*(currentPoint.y - point.y);
+            if (newDistance<distance) {
+                minIndex = j;
+                nearestPoint = currentPoint;
+                distance = newDistance;
+            }
         }
-        if (p.label==0) {
-            pos++;
-        } else {
-            neg++;
-        }
-        i++;
+        [datas exchangeObjectAtIndex:i withObjectAtIndex:minIndex];
+        [result addObject:[datas objectAtIndex:i]];
     }
     
-    return pos>neg?0:1;
+
+    return  result;
 }
-NSInteger comparePointDistances(id o0, id o1, void *context){
-    CGPoint newPoint = [(__bridge NSValue *)context CGPointValue];
-    MLDataPoint *p0 = (MLDataPoint *)o0;
-    MLDataPoint *p1 = (MLDataPoint *)o1;
-    double distance0 = (p0.x - newPoint.x)*(p0.x - newPoint.x)+(p0.y - newPoint.y)*(p0.y - newPoint.y);
-    double distance1 = (p1.x - newPoint.x)*(p1.x - newPoint.x)+(p1.y - newPoint.y)*(p1.y - newPoint.y);
-    if (distance0 > distance1) {
-        return NSOrderedDescending;
-    } else if(distance0 < distance1){
-        return NSOrderedAscending;
-    }
-    return NSOrderedSame;
-}
+
 
 -(void) setDataPoints:(NSMutableSet *)dataPoints{
     @synchronized(self){
@@ -120,8 +114,13 @@ NSInteger comparePointDistances(id o0, id o1, void *context){
                 }
                 i++;
             }
-            
-            [labels addObject:[NSNumber numberWithUnsignedInt:pos>neg?0:1]]; 
+            if (pos>neg) {
+                [labels addObject:[NSNumber numberWithUnsignedInt:0]]; 
+            } else if(pos<neg) {
+                [labels addObject:[NSNumber numberWithUnsignedInt:1]];
+            } else {
+                [labels addObject:[NSNumber numberWithUnsignedInt:-1]];
+            }
         }
     }    
     return labels;

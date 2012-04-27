@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1330A4C4154600EA002AB09F /* KNNMask.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1330A4C3154600EA002AB09F /* KNNMask.xib */; };
 		1340A4AC1534CBA300FE7EBB /* MLDataPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1340A4AB1534CBA300FE7EBB /* MLDataPoint.m */; };
 		13820E77153B6DFD0056CD3F /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 13820E75153B6DFD0056CD3F /* mask.png */; };
 		13820E78153B6DFD0056CD3F /* mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13820E76153B6DFD0056CD3F /* mask@2x.png */; };
@@ -28,6 +29,8 @@
 		13C581F5152210BD0011E9DA /* KMeans.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581F4152210BD0011E9DA /* KMeans.m */; };
 		13C581F8152210F40011E9DA /* KNNController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581F7152210F40011E9DA /* KNNController.m */; };
 		13C581FB152211390011E9DA /* KMeansController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C581FA152211390011E9DA /* KMeansController.m */; };
+		13C9F2F5154668B400DFE5A5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 13C9F2F4154668B400DFE5A5 /* icon.png */; };
+		13C9F2F7154668C700DFE5A5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 13C9F2F6154668C700DFE5A5 /* icon.png */; };
 		13F28E5C153BC29E0078F506 /* KNNSideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F28E5B153BC29E0078F506 /* KNNSideController.m */; };
 		13F28E60153BF7010078F506 /* KNNMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F28E5F153BF7010078F506 /* KNNMaskView.m */; };
 		13F28E62153C07330078F506 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F28E61153C07330078F506 /* QuartzCore.framework */; };
@@ -35,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1330A4C3154600EA002AB09F /* KNNMask.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KNNMask.xib; sourceTree = "<group>"; };
 		1340A4AA1534CBA300FE7EBB /* MLDataPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLDataPoint.h; sourceTree = "<group>"; };
 		1340A4AB1534CBA300FE7EBB /* MLDataPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLDataPoint.m; sourceTree = "<group>"; };
 		13820E75153B6DFD0056CD3F /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 		13C581F7152210F40011E9DA /* KNNController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNController.m; sourceTree = "<group>"; };
 		13C581F9152211390011E9DA /* KMeansController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMeansController.h; sourceTree = "<group>"; };
 		13C581FA152211390011E9DA /* KMeansController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMeansController.m; sourceTree = "<group>"; };
+		13C9F2F4154668B400DFE5A5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		13C9F2F6154668C700DFE5A5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		13F28E5A153BC29E0078F506 /* KNNSideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNSideController.h; sourceTree = "<group>"; };
 		13F28E5B153BC29E0078F506 /* KNNSideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNNSideController.m; sourceTree = "<group>"; };
 		13F28E5E153BF7010078F506 /* KNNMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNNMaskView.h; sourceTree = "<group>"; };
@@ -108,8 +114,10 @@
 		13820E74153B6DF10056CD3F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				13C9F2F4154668B400DFE5A5 /* icon.png */,
 				13820E75153B6DFD0056CD3F /* mask.png */,
 				13820E76153B6DFD0056CD3F /* mask@2x.png */,
+				1330A4C3154600EA002AB09F /* KNNMask.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 		13B77527151B95B8003CCE88 = {
 			isa = PBXGroup;
 			children = (
+				13C9F2F6154668C700DFE5A5 /* icon.png */,
 				13F28E61153C07330078F506 /* QuartzCore.framework */,
 				13B7753C151B95B8003CCE88 /* MachineLearningVisualization */,
 				13B77535151B95B8003CCE88 /* Frameworks */,
@@ -291,6 +300,9 @@
 				13B77597151BA2A4003CCE88 /* train.dat in Resources */,
 				13820E77153B6DFD0056CD3F /* mask.png in Resources */,
 				13820E78153B6DFD0056CD3F /* mask@2x.png in Resources */,
+				1330A4C4154600EA002AB09F /* KNNMask.xib in Resources */,
+				13C9F2F5154668B400DFE5A5 /* icon.png in Resources */,
+				13C9F2F7154668C700DFE5A5 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +358,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Liuyi Sun (A53SC662XF)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -362,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "E5CBE421-F563-46B0-B978-BC7BF4AFC8B3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -374,7 +386,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Liuyi Sun (A53SC662XF)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -384,7 +396,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "E5CBE421-F563-46B0-B978-BC7BF4AFC8B3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
@@ -394,6 +406,7 @@
 		13B77554151B95B8003CCE88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Liuyi Sun (A53SC662XF)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -402,6 +415,7 @@
 				GCC_PREFIX_HEADER = "MachineLearningVisualization/MachineLearningVisualization-Prefix.pch";
 				INFOPLIST_FILE = "MachineLearningVisualization/MachineLearningVisualization-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "E5CBE421-F563-46B0-B978-BC7BF4AFC8B3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -409,6 +423,7 @@
 		13B77555151B95B8003CCE88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Liuyi Sun (A53SC662XF)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -417,6 +432,7 @@
 				GCC_PREFIX_HEADER = "MachineLearningVisualization/MachineLearningVisualization-Prefix.pch";
 				INFOPLIST_FILE = "MachineLearningVisualization/MachineLearningVisualization-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "E5CBE421-F563-46B0-B978-BC7BF4AFC8B3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
